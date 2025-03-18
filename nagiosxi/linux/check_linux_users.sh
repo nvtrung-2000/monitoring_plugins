@@ -146,19 +146,10 @@ readonly CRITICAL_THRESHOLD
 
 validate_thresholds
 
-###############################################################################
-# Retrieve the number of logged-in users
-###############################################################################
 user_count=$(get_user_count)
 
-###############################################################################
-# Prepare performance data in Nagios format: users=value;warn;crit;min;max
-###############################################################################
 perfdata="users=${user_count};${WARNING_THRESHOLD};${CRITICAL_THRESHOLD};;"
 
-###############################################################################
-# Compare the user count against the thresholds and output the appropriate status
-###############################################################################
 if [[ "$user_count" -ge "$CRITICAL_THRESHOLD" ]]; then
     echo "CRITICAL - ${user_count} users logged in | ${perfdata}"
     exit 2

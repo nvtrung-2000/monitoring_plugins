@@ -1,1 +1,1 @@
-# nagiosxi_dev_plugins
+# MONITORING_PLUGINS
